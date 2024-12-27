@@ -17,15 +17,16 @@ class Point:
             return True
         return False
     
-    def distance_from_point(self, x, y):
-        return ((self.x - x) ** 2 + \
-                (self.y - y) ** 2) ** 0.5
+    def distance_from_point(self, point):
+        return ((self.x - point.x) ** 2 +
+                (self.y - point.y) ** 2) ** 0.5
 
 
 point1 = Point(3, 4)
 point2 = Point(6, 7)
 
 point3 = Point(4, 5)
+point_origin = Point(0, 0)
 
 print(point3.falls_in_rectangle((3, 4),(6, 7)))
-print(point1.distance(0, 0))
+print(point1.distance_from_point(point_origin))
