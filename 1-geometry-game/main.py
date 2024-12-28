@@ -24,13 +24,13 @@ class Point:
 
 class Rectangle:
 
-    def __init__(self, lower_left, upper_right):
-        self.lower_left = lower_left
-        self.upper_right = upper_right
+    def __init__(self, point1, point2):
+        self.point1 = point1
+        self.point2 = point2
 
     def area(self):
-        length = self.upper_right.x - self.lower_left.x
-        breadth = self.upper_right.y - self.lower_left.y
+        length = abs(self.point2.x - self.point1.x)
+        breadth = abs(self.point2.y - self.point1.y)
         return length * breadth
 
 
