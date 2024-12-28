@@ -34,7 +34,6 @@ class Rectangle:
         return length * breadth
 
 
-
 # point1 = Point(3, 4)
 # point_origin = Point(0, 0)
 
