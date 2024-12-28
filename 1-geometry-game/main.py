@@ -12,8 +12,8 @@ class Point:
         self.y = y
 
     def falls_in_rectangle(self, rectangle):
-        if (self.x > rectangle.lower_left.x and self.x < rectangle.upper_right.x) \
-            and (self.y > rectangle.lower_left.y and self.y < rectangle.upper_right.y):
+        if (self.x > min(rectangle.point1.x, rectangle.point2.x) and self.x < max(rectangle.point1.x, rectangle.point2.x)) \
+            and (self.y > min(rectangle.point1.y, rectangle.point2.y) and self.y < max(rectangle.point1.y, rectangle.point2.y)):
             return True
         return False
 
@@ -47,10 +47,11 @@ class Rectangle:
 from random import randint
 
 rectangle = Rectangle(Point(randint(0, 9), randint(0, 9)), Point(randint(10, 19), randint(10, 19)))
-print("Rectangle coordinates:", rectangle.lower_left.x, rectangle.lower_left.y, \
-    "and", rectangle.upper_right.x, rectangle.upper_right.y)
+print("Rectangle coordinates:", rectangle.point1.x, rectangle.point1.y, \
+    "and", rectangle.point2.x, rectangle.point2.y)
 
 x = int(input("Guess 'x' coordinate: "))
 y = int(input("Guess 'y' coordinate: "))
 point = Point(x, y)
 print("Your point was inside the rectangle:", point.falls_in_rectangle(rectangle))
+print("The area of the rectangle is:", rectangle.area())
